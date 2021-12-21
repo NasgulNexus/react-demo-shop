@@ -1,10 +1,15 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../Header";
 
 const Cart = () => {
+  const header = {
+    title: "Корзина",
+    link: [],
+    return: true
+  };
   return (
     <div>
-      <Header />
+      <Header header={header} />
     </div>
   );
 };

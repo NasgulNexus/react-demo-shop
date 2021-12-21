@@ -1,8 +1,8 @@
 import { FETCH_PRODUCTS } from "../actions/products";
 
-const initialSate = [];
+const initialState = [];
 
-export default function products(state = initialSate, action) {
+export default function products(state = initialState, action) {
   switch (action.type) {
     case FETCH_PRODUCTS: {
       return action.payload;

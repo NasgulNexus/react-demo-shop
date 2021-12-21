@@ -1,10 +1,15 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../Header";
 
 const Tables = () => {
+  const header = {
+    title: "Таблица сравнения",
+    link: [],
+    return: true
+  };
   return (
     <div>
-      <Header />
+      <Header header={header} />
     </div>
   );
 };
