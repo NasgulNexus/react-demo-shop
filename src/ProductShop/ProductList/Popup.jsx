@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import ProdcutCard from "./ProductCard";
 
 const useStyles = makeStyles(theme => ({
   PopupBox: {
@@ -32,16 +32,9 @@ const Popup = ({ product }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div>
-      <Button size="small" onClick={handleOpen}>
-        Подробнее...
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+    <div onClick={handleOpen}>
+      <ProdcutCard product={product} />
+      <Modal open={open} onClose={handleClose}>
         <Box className={classes.PopupBox}>
           <img
             src={product.image}

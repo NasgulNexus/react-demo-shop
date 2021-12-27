@@ -1,15 +1,12 @@
 import React from "react";
 import Header from "../Header";
+import FavoritesProduct from "./FavoritesProduct";
 
 const Favorites = () => {
-  const header = {
-    title: "Избранное",
-    link: [],
-    return: true
-  };
   return (
     <div>
-      <Header header={header} />
+      <Header title={"Избранное"} bradCrumbs={true} />
+      <FavoritesProduct />
     </div>
   );
 };

@@ -1,17 +1,28 @@
 import React from "react";
+import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 
+const useStyles = makeStyles(theme => ({
+  description: {
+    lineHeight: "18px",
+    maxHeight: "54px",
+    overflow: "hidden"
+  }
+}));
+
 const ProductListTextCard = ({ product }) => {
+  const classes = useStyles();
   return (
     <div>
       <Typography gutterBottom variant="h5" component="div">
         {product.title}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {product.description
-          .split("")
-          .slice(0, 100)
-          .join("") + "..."}
+      <Typography
+        variant="body2"
+        color="text.secondary"
+        className={classes.description}
+      >
+        {product.description}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Цена: {product.price} $

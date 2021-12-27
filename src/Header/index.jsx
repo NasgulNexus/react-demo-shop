@@ -4,8 +4,10 @@ import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import HeaderLink from "./HeaderLink";
-import HeaderReturn from "./HeaderReturn";
+import { Link } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = ({ header }) => {
+const Header = ({ title, menu, bradCrumbs }) => {
   const classes = useStyles();
 
   return (
@@ -29,16 +31,29 @@ const Header = ({ header }) => {
           <Grid container spacing={5} className={classes.HeaderGrid}>
             <Grid item>
               <Typography variant="h6" color="primary">
-                {header.title}
+                {title}
               </Typography>
             </Grid>
-            {header.link.map(link => (
-              <Grid item key={link.id}>
-                <HeaderLink link={link} />
+            {menu !== undefined
+              ? menu.map((element, index) => (
+                  <Grid item key={index}>
+                    {element}
+                  </Grid>
+                ))
+              : null}
+            {bradCrumbs === true ? (
+              <Grid item>
+                <IconButton component={Link} variant="text" to="/">
+                  <ArrowBackIosIcon color="primary" />
+                </IconButton>
               </Grid>
-            ))}
-
-            <HeaderReturn header={header} />
+            ) : (
+              <Grid item>
+                <IconButton component={Link} variant="text" to="/cart">
+                  <ShoppingCartIcon color="primary" />
+                </IconButton>
+              </Grid>
+            )}
           </Grid>
         </Container>
       </AppBar>
@@ -47,3 +62,5 @@ const Header = ({ header }) => {
 };
 
 export default Header;
+
+/* */

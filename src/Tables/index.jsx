@@ -1,15 +1,12 @@
 import React from "react";
 import Header from "../Header";
+import TablesProduct from "./TablesProduct";
 
 const Tables = () => {
-  const header = {
-    title: "Таблица сравнения",
-    link: [],
-    return: true
-  };
   return (
     <div>
-      <Header header={header} />
+      <Header title={"Корзина"} bradCrumbs={true} />
+      <TablesProduct />
     </div>
   );
 };
