@@ -4,7 +4,7 @@ import Header from "../Header";
 const Favorites = () => {
   return (
     <div>
-      <Header title={"Избранное"} bradCrumbs={true} />
+      <Header title={"Избранное"} breadcrumbs={true} />
     </div>
   );
 };

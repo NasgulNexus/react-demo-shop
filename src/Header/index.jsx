@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = ({ title, menu, bradCrumbs }) => {
+const Header = ({ title, menu, breadcrumbs }) => {
   const classes = useStyles();
 
   return (
@@ -40,7 +40,7 @@ const Header = ({ title, menu, bradCrumbs }) => {
                   </Grid>
                 ))
               : null}
-            {bradCrumbs === true ? (
+            {breadcrumbs === true ? (
               <Grid item>
                 <IconButton component={Link} variant="text" to="/">
                   <ArrowBackIosIcon color="primary" />

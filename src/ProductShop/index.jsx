@@ -21,7 +21,6 @@ const Favorites = () => {
             <ShoppingCartIcon color="primary" />
           </IconButton>
         ]}
-        bradCrumbs={false}
       />
       <ProductList />
     </div>
