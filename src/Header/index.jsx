@@ -29,7 +29,7 @@ const Header = ({ title, menu, breadcrumbs }) => {
         <Container maxWidth="xl">
           <Grid container spacing={5} className={classes.HeaderGrid}>
             <Grid item>
-              <Typography variant="h6" color="primary">
+              <Typography variant="h6" component="h2" color="primary">
                 {title}
               </Typography>
             </Grid>
