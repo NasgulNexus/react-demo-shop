@@ -8,7 +8,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Popup from "./Popup";
-import ProductListTextCard from "./ProductListTextCard";
+import TextProduct from "./TextProduct";
 import ImageProduct from "./ImageProduct";
 
 const useStyles = makeStyles(theme => ({
@@ -38,7 +38,7 @@ const ProductList = () => {
             <Card sx={{ maxWidth: 345 }}>
               <ImageProduct image={product.image} title={product.title} />
               <CardContent>
-                <ProductListTextCard
+                <TextProduct
                   title={product.title}
                   description={product.description}
                   price={product.price}

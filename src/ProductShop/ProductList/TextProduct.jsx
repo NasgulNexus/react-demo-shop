@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProductListTextCard = ({ title, description, price }) => {
+const TextProduct = ({ title, description, price }) => {
   const classes = useStyles();
   return (
     <div>
@@ -30,4 +30,4 @@ const ProductListTextCard = ({ title, description, price }) => {
     </div>
   );
 };
-export default ProductListTextCard;
+export default TextProduct;
