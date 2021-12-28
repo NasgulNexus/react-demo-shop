@@ -4,7 +4,7 @@ import Header from "../Header";
 const Tables = () => {
   return (
     <div>
-      <Header title={"Корзина"} bradCrumbs={true} />
+      <Header title={"Таблица сравнения"} bradCrumbs={true} />
     </div>
   );
 };
