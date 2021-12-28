@@ -10,22 +10,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProductListTextCard = ({ product }) => {
+const ProductListTextCard = ({ title, description, price }) => {
   const classes = useStyles();
   return (
     <div>
       <Typography gutterBottom variant="h5" component="div">
-        {product.title}
+        {title}
       </Typography>
       <Typography
         variant="body2"
         color="text.secondary"
         className={classes.description}
       >
-        {product.description}
+        {description}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Цена: {product.price} $
+        Цена: {price} $
       </Typography>
     </div>
   );

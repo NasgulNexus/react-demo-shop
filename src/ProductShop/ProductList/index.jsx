@@ -26,10 +26,10 @@ const ProductList = () => {
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (!products.list) {
+    if (!products.length) {
       dispatch(fetchGetProducts());
     }
-  }, [products.list, dispatch]);
+  }, [products.length, dispatch]);
   return (
     <div className={classes.root}>
       <Grid container spacing={3} className={classes.ProductListGridContainer}>
@@ -38,7 +38,11 @@ const ProductList = () => {
             <Card sx={{ maxWidth: 345 }}>
               <ImageProduct image={product.image} title={product.title} />
               <CardContent>
-                <ProductListTextCard product={product} />
+                <ProductListTextCard
+                  title={product.title}
+                  description={product.description}
+                  price={product.price}
+                />
               </CardContent>
               <CardActions>
                 <Button size="small">В корзину</Button>

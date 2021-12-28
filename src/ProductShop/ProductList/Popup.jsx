@@ -35,14 +35,10 @@ const Popup = ({ product }) => {
           <Typography variant="h6" component="h2">
             {product.title}
           </Typography>
-          <Typography sx={{ mt: 2 }}>
-            Описание: {product.description}
-          </Typography>
-          <Typography sx={{ mt: 2 }}>Цена: {product.price} $</Typography>
-          <Typography sx={{ mt: 2 }}>Категория: {product.category}</Typography>
-          <Typography sx={{ mt: 2 }}>
-            Рейтинг: {product.rating.rate}/5
-          </Typography>
+          <Typography>Описание: {product.description}</Typography>
+          <Typography>Цена: {product.price} $</Typography>
+          <Typography>Категория: {product.category}</Typography>
+          <Typography>Рейтинг: {product.rating.rate}/5</Typography>
         </Box>
       </Modal>
     </div>
