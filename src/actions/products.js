@@ -1,5 +1,5 @@
 import axios from "axios";
-import { domain, productUrl, limit } from "../config";
+import { domain, productUrl, limit } from "./config";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 
 export const fetchGetProducts = () => async dispatch => {
