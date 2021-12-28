@@ -6,10 +6,10 @@ import { fetchGetProducts } from "../../actions/products";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Popup from "./Popup";
 import ProductListTextCard from "./ProductListTextCard";
+import ImageProduct from "./ImageProduct";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,13 +36,7 @@ const ProductList = () => {
         {products.map(product => (
           <Grid key={product.id} item>
             <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt={product.title}
-                src={product.image}
-                height="100"
-                sx={{ maxWidth: "100%", height: "10%" }}
-              />
+              <ImageProduct image={product.image} title={product.title} />
               <CardContent>
                 <ProductListTextCard product={product} />
               </CardContent>

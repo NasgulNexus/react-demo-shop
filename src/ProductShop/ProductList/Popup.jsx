@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import ImageProduct from "./ImageProduct";
 
 const useStyles = makeStyles(theme => ({
   PopupBox: {
@@ -15,14 +16,6 @@ const useStyles = makeStyles(theme => ({
     border: "2px solid #000",
     zIndex: 1,
     padding: "20px"
-  },
-  PopupImg: {
-    maxWidth: "300px",
-    maxHeight: "300px",
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginBottom: "10px"
   }
 }));
 
@@ -36,18 +29,9 @@ const Popup = ({ product }) => {
       <Button size="small" onClick={handleOpen}>
         Подробнее...
       </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box className={classes.PopupBox}>
-          <img
-            src={product.image}
-            alt={product.title}
-            className={classes.PopupImg}
-          />
+          <ImageProduct image={product.image} title={product.title} />
           <Typography variant="h6" component="h2">
             {product.title}
           </Typography>
