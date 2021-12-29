@@ -1,32 +1,24 @@
 export const ADD_TO_CART = "ADD_TO_CART";
-export const DELETE_TO_CART = "DELETE_TO_CART";
-export const INCREMENT_CART = "INCREMENT_CART";
+export const DELETE_FROM_CART = "DELETE_FROM_CART";
 export const DECREMENT_CART = "DECREMENT_CART";
 
-export const addToCart = index => {
+export const addToCart = id => {
   return {
     type: ADD_TO_CART,
-    payload: index
+    payload: id
   };
 };
 
-export const deleteToCart = index => {
+export const deleteFromCart = id => {
   return {
-    type: DELETE_TO_CART,
-    payload: index
+    type: DELETE_FROM_CART,
+    payload: id
   };
 };
 
-export const incrementCart = index => {
-  return {
-    type: INCREMENT_CART,
-    payload: index
-  };
-};
-
-export const decrementCart = index => {
+export const decrementCart = id => {
   return {
     type: DECREMENT_CART,
-    payload: index
+    payload: id
   };
 };

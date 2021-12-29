@@ -5,7 +5,7 @@ import CartProduct from "./CartProduct";
 const Cart = () => {
   return (
     <div>
-      <Header title={"Корзина"} bradCrumbs={true} />
+      <Header title={"Корзина"} breadcrumbs={true} />
       <CartProduct />
     </div>
   );

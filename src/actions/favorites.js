@@ -1,16 +1,16 @@
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
-export const DELETE_TO_FAVORITES = "DELETE_TO_FAVORITES";
+export const DELETE_FROM_FAVORITES = "DELETE_FROM_FAVORITES";
 
-export const addToFavorites = data => {
+export const addToFavorites = id => {
   return {
     type: ADD_TO_FAVORITES,
-    payload: data
+    payload: id
   };
 };
 
-export const deleteToFavorites = data => {
+export const deleteFromFavorites = id => {
   return {
-    type: DELETE_TO_FAVORITES,
-    payload: data
+    type: DELETE_FROM_FAVORITES,
+    payload: id
   };
 };

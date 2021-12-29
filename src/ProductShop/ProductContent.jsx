@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { makeStyles } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGetProducts } from "../../actions/products";
-import Popup from "./Popup";
+import { fetchGetProducts } from "../actions/products";
+import Popup from "../Popup";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,26 +15,26 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProductList = () => {
+const ProductContent = () => {
   const classes = useStyles();
   const products = useSelector(state => state.products);
+  const searchResult = useSelector(state => state.searchResult);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (!products.length) {
+    if (Object.keys(products).length === 0) {
       dispatch(fetchGetProducts());
     }
-  }, [products.length, dispatch]);
-
+  }, [products, searchResult, dispatch]);
   return (
     <div className={classes.root}>
       <Grid container spacing={3} className={classes.ProductListGridContainer}>
-        {products.map(product => (
-          <Grid key={product.id} item>
-            <Popup product={product} />
+        {searchResult.map(idProduct => (
+          <Grid key={idProduct} item>
+            <Popup product={products[idProduct]} />
           </Grid>
         ))}
       </Grid>
     </div>
   );
 };
-export default ProductList;
+export default ProductContent;

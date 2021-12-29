@@ -5,7 +5,7 @@ import FavoritesProduct from "./FavoritesProduct";
 const Favorites = () => {
   return (
     <div>
-      <Header title={"Избранное"} bradCrumbs={true} />
+      <Header title={"Избранное"} breadcrumbs={true} />
       <FavoritesProduct />
     </div>
   );

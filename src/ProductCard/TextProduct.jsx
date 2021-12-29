@@ -1,6 +1,6 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
   description: {
@@ -10,24 +10,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProductListTextCard = ({ product }) => {
+const TextProduct = ({ title, description, price }) => {
   const classes = useStyles();
   return (
     <div>
       <Typography gutterBottom variant="h5" component="div">
-        {product.title}
+        {title}
       </Typography>
       <Typography
         variant="body2"
         color="text.secondary"
         className={classes.description}
       >
-        {product.description}
+        {description}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Цена: {product.price} $
+        Цена: {price} $
       </Typography>
     </div>
   );
 };
-export default ProductListTextCard;
+export default TextProduct;

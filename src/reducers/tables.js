@@ -1,4 +1,4 @@
-import { ADD_TO_TABLES, DELETE_TO_TABLES } from "../actions/tables";
+import { ADD_TO_TABLES, DELETE_FROM_TABLES } from "../actions/tables";
 
 const initialState = [];
 
@@ -7,9 +7,9 @@ export default function tables(state = initialState, action) {
     case ADD_TO_TABLES: {
       return [...state, action.payload];
     }
-    case DELETE_TO_TABLES: {
-      const arr = state.splice(state.indexOf(action.payload), 1);
-      return [...state, arr];
+    case DELETE_FROM_TABLES: {
+      state.splice(state.indexOf(action.payload), 1);
+      return [...state];
     }
     default:
       return state;

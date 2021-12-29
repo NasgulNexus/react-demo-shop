@@ -1,4 +1,4 @@
-import { ADD_TO_FAVORITES, DELETE_TO_FAVORITES } from "../actions/favorites";
+import { ADD_TO_FAVORITES, DELETE_FROM_FAVORITES } from "../actions/favorites";
 
 const initialState = [];
 
@@ -7,9 +7,9 @@ export default function favorites(state = initialState, action) {
     case ADD_TO_FAVORITES: {
       return [...state, action.payload];
     }
-    case DELETE_TO_FAVORITES: {
-      const arr = state.splice(state.indexOf(action.payload), 1);
-      return [...state, arr];
+    case DELETE_FROM_FAVORITES: {
+      state.splice(state.indexOf(action.payload), 1);
+      return [...state];
     }
     default:
       return state;

@@ -5,7 +5,7 @@ import TablesProduct from "./TablesProduct";
 const Tables = () => {
   return (
     <div>
-      <Header title={"Корзина"} bradCrumbs={true} />
+      <Header title={"Таблица сравнения"} breadcrumbs={true} />
       <TablesProduct />
     </div>
   );

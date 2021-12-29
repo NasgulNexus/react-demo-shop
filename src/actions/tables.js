@@ -1,5 +1,5 @@
 export const ADD_TO_TABLES = "ADD_TO_TABLES";
-export const DELETE_TO_TABLES = "DELETE_TO_TABLES";
+export const DELETE_FROM_TABLES = "DELETE_FROM_TABLES";
 
 export const addToTables = index => {
   return {
@@ -8,9 +8,9 @@ export const addToTables = index => {
   };
 };
 
-export const deleteToTables = index => {
+export const deleteFromTables = index => {
   return {
-    type: DELETE_TO_TABLES,
+    type: DELETE_FROM_TABLES,
     payload: index
   };
 };

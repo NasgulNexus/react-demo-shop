@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = ({ title, menu, bradCrumbs }) => {
+const Header = ({ title, menu, breadcrumbs }) => {
   const classes = useStyles();
 
   return (
@@ -30,7 +29,7 @@ const Header = ({ title, menu, bradCrumbs }) => {
         <Container maxWidth="xl">
           <Grid container spacing={5} className={classes.HeaderGrid}>
             <Grid item>
-              <Typography variant="h6" color="primary">
+              <Typography variant="h6" component="h2" color="primary">
                 {title}
               </Typography>
             </Grid>
@@ -41,19 +40,13 @@ const Header = ({ title, menu, bradCrumbs }) => {
                   </Grid>
                 ))
               : null}
-            {bradCrumbs === true ? (
+            {breadcrumbs === true ? (
               <Grid item>
                 <IconButton component={Link} variant="text" to="/">
                   <ArrowBackIosIcon color="primary" />
                 </IconButton>
               </Grid>
-            ) : (
-              <Grid item>
-                <IconButton component={Link} variant="text" to="/cart">
-                  <ShoppingCartIcon color="primary" />
-                </IconButton>
-              </Grid>
-            )}
+            ) : null}
           </Grid>
         </Container>
       </AppBar>
@@ -62,5 +55,3 @@ const Header = ({ title, menu, bradCrumbs }) => {
 };
 
 export default Header;
-
-/* */

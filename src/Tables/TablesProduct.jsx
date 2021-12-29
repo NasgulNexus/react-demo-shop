@@ -47,23 +47,23 @@ const TablesProduct = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {tables.map(tableId =>
-              products.map(table =>
-                tableId === table.id ? (
-                  <TableRow
-                    key={table.id}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {table.title}
-                    </TableCell>
-                    <TableCell align="right">{table.price}</TableCell>
-                    <TableCell align="right">{table.rating.rate}</TableCell>
-                    <TableCell align="right">{table.category}</TableCell>
-                  </TableRow>
-                ) : null
-              )
-            )}
+            {tables.map(tableId => (
+              <TableRow
+                key={products[tableId].id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {products[tableId].title}
+                </TableCell>
+                <TableCell align="right">{products[tableId].price}</TableCell>
+                <TableCell align="right">
+                  {products[tableId].rating.rate}
+                </TableCell>
+                <TableCell align="right">
+                  {products[tableId].category}
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
