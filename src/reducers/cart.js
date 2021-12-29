@@ -7,24 +7,24 @@ export default function favorites(state = initialState, action) {
     case ADD_TO_CART: {
       let newData = false;
       state.forEach(el => {
-        if (el.id === action.payload) {
+        if (el.id === action.payload.id) {
           el.count++;
           newData = true;
         }
       });
       if (newData === false) {
-        const cartData = { id: action.payload, count: 1 };
+        const cartData = { id: action.payload.id, count: 1 };
         return [...state, cartData];
       }
       return [...state];
     }
     case DELETE_FROM_CART: {
-      return state.filter(el => el.id !== action.payload);
+      return state.filter(el => el.id !== action.payload.id);
     }
     case DECREMENT_CART: {
       let deleteBoll = false;
       state.forEach(el => {
-        if (el.id === action.payload) {
+        if (el.id === action.payload.id) {
           el.count--;
         }
         if (el.count <= 0) {
@@ -32,7 +32,7 @@ export default function favorites(state = initialState, action) {
         }
       });
       if (deleteBoll === true) {
-        return state.filter(el => el.id !== action.payload);
+        return state.filter(el => el.id !== action.payload.id);
       }
       return [...state];
     }
