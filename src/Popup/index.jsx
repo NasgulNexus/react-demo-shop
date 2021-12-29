@@ -23,18 +23,21 @@ const Popup = ({ product }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
 
   return (
-    <div onClick={handleOpen}>
-      <ProdcutCard product={product} />
+    <>
+      <div onClick={handleOpen}>
+        <ProdcutCard product={product} />
+      </div>
       <Modal open={open} onClose={handleClose}>
         <Box className={classes.PopupBox}>
           <ImageProduct image={product.image} title={product.title} />
           <TextProductFull product={product} />
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };
 
