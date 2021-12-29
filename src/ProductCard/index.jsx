@@ -12,7 +12,7 @@ import FavoriteButton from "./FavoriteButton";
 import TablesButton from "./TablesButton";
 import TextProductFull from "../TextProduct/TextProductFull";
 
-const ProdcutCard = ({ product, ProdcutTextFull }) => {
+const ProdcutCard = ({ product, ProductTextFull }) => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const addCartShow = cart.find(el => el.id === product.id);
@@ -22,7 +22,7 @@ const ProdcutCard = ({ product, ProdcutTextFull }) => {
         <FavoriteButton id={product.id} />
         <ImageProduct image={product.image} title={product.title} />
         <CardContent>
-          {ProdcutTextFull === true ? (
+          {ProductTextFull === true ? (
             <TextProductFull product={product} />
           ) : (
             <TextProduct

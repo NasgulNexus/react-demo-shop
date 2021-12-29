@@ -5,11 +5,10 @@ const initialState = [];
 export default function tables(state = initialState, action) {
   switch (action.type) {
     case ADD_TO_TABLES: {
-      return [...state, action.payload];
+      return [...state, action.payload.id];
     }
     case DELETE_FROM_TABLES: {
-      state.splice(state.indexOf(action.payload), 1);
-      return [...state];
+      return state.filter(id => id !== action.payload.id);
     }
     default:
       return state;

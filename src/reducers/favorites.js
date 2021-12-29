@@ -8,8 +8,7 @@ export default function favorites(state = initialState, action) {
       return [...state, action.payload];
     }
     case DELETE_FROM_FAVORITES: {
-      state.splice(state.indexOf(action.payload), 1);
-      return [...state];
+      return state.filter(id => id !== action.payload);
     }
     default:
       return state;
