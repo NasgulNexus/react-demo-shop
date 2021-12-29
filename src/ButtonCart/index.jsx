@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { deleteFromCart, addToCart, decrementCart } from "../actions/cart";
 
-const ButtonCart = ({ productId, index, count }) => {
+const ButtonCart = ({ productId, count }) => {
   const dispatch = useDispatch();
   return (
     <div>
@@ -20,7 +20,7 @@ const ButtonCart = ({ productId, index, count }) => {
       <Button
         size="small"
         onClick={event => {
-          dispatch(addToCart(index));
+          dispatch(addToCart(productId));
           event.stopPropagation();
         }}
       >
@@ -30,7 +30,7 @@ const ButtonCart = ({ productId, index, count }) => {
       <Button
         size="small"
         onClick={event => {
-          dispatch(decrementCart(index));
+          dispatch(decrementCart(productId));
           event.stopPropagation();
         }}
       >

@@ -16,12 +16,11 @@ const CartProduct = () => {
 
   return (
     <>
-      {cart.map((cartData, index) => (
+      {cart.map(cartData => (
         <div key={cartData.id} className={classes.root}>
           <CartProductContent
             product={products[cartData.id]}
             count={cartData.count}
-            index={index}
           />
         </div>
       ))}

@@ -15,11 +15,7 @@ import TextProductFull from "../TextProduct/TextProductFull";
 const ProdcutCard = ({ product, ProdcutTextFull }) => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
-  const IndexCart = cart
-    .map(el => {
-      return el.id === product.id ? el.id : null;
-    })
-    .filter(el => el !== null);
+  const addCartShow = cart.find(el => el.id === product.id);
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
@@ -37,18 +33,14 @@ const ProdcutCard = ({ product, ProdcutTextFull }) => {
           )}
         </CardContent>
         <CardActions>
-          {cart.map((data, index) =>
+          {cart.map(data =>
             data.id === product.id ? (
               <div key={product.id}>
-                <ButtonCart
-                  productId={product.id}
-                  index={index}
-                  count={data.count}
-                />
+                <ButtonCart productId={product.id} count={data.count} />
               </div>
             ) : null
           )}
-          {IndexCart.length === 0 ? (
+          {addCartShow === undefined ? (
             <Button
               size="small"
               onClick={event => {
