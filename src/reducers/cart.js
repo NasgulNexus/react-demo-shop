@@ -22,16 +22,9 @@ export default function favorites(state = initialState, action) {
       return state.filter(el => el.id !== action.payload.id);
     }
     case DECREMENT_CART: {
-      let deleteBoll = false;
-      state.forEach(el => {
-        if (el.id === action.payload.id) {
-          el.count--;
-        }
-        if (el.count <= 0) {
-          deleteBoll = true;
-        }
-      });
-      if (deleteBoll === true) {
+      const index = state.findIndex(el => el.id === action.payload.id);
+      state[index].count--;
+      if (state[index].count < 1) {
         return state.filter(el => el.id !== action.payload.id);
       }
       return [...state];
