@@ -1,10 +1,10 @@
 import React from "react";
-import ProductList from "./ProductList/index.jsx";
 import Header from "../Header";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import ProductContent from "./ProductContent";
 
 const Favorites = () => {
   return (
@@ -22,7 +22,7 @@ const Favorites = () => {
           </IconButton>
         ]}
       />
-      <ProductList />
+      <ProductContent />
     </div>
   );
 };
