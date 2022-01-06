@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import TotalCost from "../TotalCost";
+import GeneralPurchaseInformation from "../GeneralPurchaseInformation";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,10 +22,14 @@ const CartPay = ({ cart, products }) => {
 
   return (
     <div className={classes.root}>
-      <Typography>Различных товаров: {differentGoods}</Typography>
-      <Typography>Всего товаров: {totalGoods}</Typography>
-      <TotalCost totalCost={totalCost} />
-      <Button>Оплатить</Button>
+      <GeneralPurchaseInformation
+        totalCost={totalCost}
+        totalGoods={totalGoods}
+        differentGoods={differentGoods}
+      />
+      <Button disabled={totalGoods < 1} component={Link} to="/payment">
+        Оплатить
+      </Button>
     </div>
   );
 };
