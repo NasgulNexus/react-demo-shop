@@ -3,7 +3,7 @@ import useValidation from "./useValidation";
 
 const useInput = (initialValue, validations) => {
   const [value, setValue] = useState(initialValue);
-  const [isDirty, setDirty] = useState(false);
+  const [fieldProcessed, setFieldProcessed] = useState(false);
   const valid = useValidation(value, validations);
 
   const onChange = e => {
@@ -11,14 +11,14 @@ const useInput = (initialValue, validations) => {
   };
 
   const onBlur = e => {
-    setDirty(true);
+    setFieldProcessed(true);
   };
 
   return {
     value,
     onChange,
     onBlur,
-    isDirty,
+    fieldProcessed,
     ...valid
   };
 };

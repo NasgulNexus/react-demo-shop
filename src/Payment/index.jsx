@@ -27,27 +27,24 @@ const useStyles = makeStyles(theme => ({
 const Payment = () => {
   const classes = useStyles();
 
+  const configPaymentForm = useInput(
+    (name: { value: "", validations: { isEmpty: true, isName: true } }),
+    (surname: { value: "", validations: { isEmpty: true, isName: true } })
+  );
+
   const name = useInput("", { isEmpty: true, isName: true });
   const surname = useInput("", { isEmpty: true, isSurname: true });
-  const DOB = useInput("", { isDOB: true });
   const email = useInput("", { isEmail: true });
   const telephone = useInput("", { isTelephone: true });
 
-  const disabledButton =
-    name.inputValid &&
-    surname.inputValid &&
-    DOB.inputValid &&
-    email.inputValid &&
-    telephone.inputValid;
-
   return (
     <form className={classes.PaymentForm}>
-      {name.isDirty && name.isName && (
+      {name.fieldProcessed && name.isName && (
         <Typography className={classes.PaymentTextError}>
           {name.errorMessage}
         </Typography>
       )}
-      {name.isDirty && name.isEmpty && (
+      {name.fieldProcessed && name.isEmpty && (
         <Typography className={classes.PaymentTextError}>
           {name.errorEmptyMessage}
         </Typography>
@@ -60,12 +57,12 @@ const Payment = () => {
         onChange={e => name.onChange(e)}
         onBlur={e => name.onBlur(e)}
       />
-      {surname.isDirty && surname.isSurname && (
+      {surname.fieldProcessed && surname.isSurname && (
         <Typography className={classes.PaymentTextError}>
           {surname.errorMessage}
         </Typography>
       )}
-      {surname.isDirty && surname.isEmpty && (
+      {surname.fieldProcessed && surname.isEmpty && (
         <Typography className={classes.PaymentTextError}>
           {surname.errorEmptyMessage}
         </Typography>
@@ -78,21 +75,7 @@ const Payment = () => {
         onChange={e => surname.onChange(e)}
         onBlur={e => surname.onBlur(e)}
       />
-      {DOB.isDirty && DOB.isDOB && (
-        <Typography className={classes.PaymentTextError}>
-          {DOB.errorMessage}
-        </Typography>
-      )}
-      <TextField
-        value={DOB.value}
-        type="date"
-        name="DOB"
-        placeholder="Дата рождения"
-        className={classes.PaymentInput}
-        onChange={e => DOB.onChange(e)}
-        onBlur={e => DOB.onBlur(e)}
-      />
-      {email.isDirty && email.isEmail && (
+      {email.fieldProcessed && email.isEmail && (
         <Typography className={classes.PaymentTextError}>
           {email.errorMessage}
         </Typography>
@@ -105,7 +88,7 @@ const Payment = () => {
         onChange={e => email.onChange(e)}
         onBlur={e => email.onBlur(e)}
       />
-      {telephone.isDirty && telephone.isTelephone && (
+      {telephone.fieldProcessed && telephone.isTelephone && (
         <Typography className={classes.PaymentTextError}>
           {telephone.errorMessage}
         </Typography>
@@ -121,7 +104,7 @@ const Payment = () => {
       <Button
         type="submit"
         variant="contained"
-        disabled={!disabledButton}
+        disabled={!name.isFormValid}
         className={classes.PaymentButton}
       >
         Заказать

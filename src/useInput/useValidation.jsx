@@ -4,15 +4,15 @@ const useValidation = (value, validations) => {
   const [isEmpty, setEmpty] = useState(false);
   const [isName, setName] = useState(false);
   const [isSurname, setSurname] = useState(false);
-  const [isDOB, setDOB] = useState(false);
   const [isEmail, setEmail] = useState(false);
   const [isTelephone, setTelephone] = useState(false);
-  const [inputValid, setValid] = useState(false);
+  const [isFormValid, setFormValid] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
   const errorEmptyMessage = "Поле не может быть пустым";
 
   useEffect(() => {
+    console.log(validations);
     for (const validation in validations) {
       switch (validation) {
         case "isName":
@@ -37,15 +37,6 @@ const useValidation = (value, validations) => {
             setErrorMessage(
               "Некорректно введено фамилия. Фамилия вводится русскими буквами"
             );
-          }
-          break;
-        case "isDOB":
-          if (parseInt(value, 10) < 2010) {
-            setDOB(false);
-            setErrorMessage("");
-          } else {
-            setDOB(true);
-            setErrorMessage("Дата рождения не должна быть позже 2010 года");
           }
           break;
         case "isEmail":
@@ -82,21 +73,20 @@ const useValidation = (value, validations) => {
   }, [value, validations]);
 
   useEffect(() => {
-    if (isEmpty || isName || isSurname || isDOB || isEmail || isTelephone) {
-      setValid(false);
+    if (isEmpty && isName && isSurname && isEmail && isTelephone) {
+      setFormValid(true);
     } else {
-      setValid(true);
+      setFormValid(false);
     }
-  }, [isEmpty, isName, isSurname, isDOB, isEmail, isTelephone]);
+  }, [isEmpty, isName, isSurname, isEmail, isTelephone]);
 
   return {
     isEmpty,
     isName,
     isSurname,
-    isDOB,
     isEmail,
     isTelephone,
-    inputValid,
+    isFormValid,
     errorMessage,
     errorEmptyMessage
   };
