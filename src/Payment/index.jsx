@@ -52,11 +52,13 @@ const Payment = () => {
     }
 
     if (!e.email || !reEmail.test(e.email)) {
-      errors.email = "Поле заполнено неверно.";
+      errors.email =
+        "Поле заполнено неверно. Почта должна иметь вид name@service.domain";
     }
 
     if (!e.telephone || !reTelephone.test(e.telephone)) {
-      errors.telephone = "Поле заполнено неверно.";
+      errors.telephone =
+        "Поле заполнено неверно. Номер должен состоять только из цифр";
     }
 
     return errors;
