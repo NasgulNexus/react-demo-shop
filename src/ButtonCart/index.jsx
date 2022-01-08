@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { deleteFromCart, addToCart, decrementCart } from "../actions/cart";
+import { Grid } from "@mui/material";
 
 const ButtonCart = ({ productId, count }) => {
   const dispatch = useDispatch();
   return (
-    <div>
+    <Grid container>
       <Button
         size="small"
         onClick={event => {
@@ -36,7 +37,7 @@ const ButtonCart = ({ productId, count }) => {
       >
         -
       </Button>
-    </div>
+    </Grid>
   );
 };
 
