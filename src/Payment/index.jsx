@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import useInput from "../useInput";
+import { Form, Field } from "react-final-form";
 
 const useStyles = makeStyles(theme => ({
   PaymentForm: {
@@ -27,89 +27,113 @@ const useStyles = makeStyles(theme => ({
 const Payment = () => {
   const classes = useStyles();
 
-  const configPaymentForm = useInput(
-    (name: { value: "", validations: { isEmpty: true, isName: true } }),
-    (surname: { value: "", validations: { isEmpty: true, isName: true } })
-  );
+  const onSubmit = e => {
+    const conclusion =
+      e.name + " " + e.surname + " " + e.email + " " + e.telephone;
+    alert(conclusion);
+  };
 
-  const name = useInput("", { isEmpty: true, isName: true });
-  const surname = useInput("", { isEmpty: true, isSurname: true });
-  const email = useInput("", { isEmail: true });
-  const telephone = useInput("", { isTelephone: true });
+  const validate = e => {
+    const errors = {};
 
+    const reNameAndSurname = /^[а-яё]*$/i;
+    const reEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
+    const reTelephone = /^((\+7|7|8)+([0-9]){10})$/;
+
+    if (!e.name || !reNameAndSurname.test(e.name)) {
+      errors.name = "Поле заполнено неверно.";
+    }
+
+    if (!e.surname || !reNameAndSurname.test(e.surname)) {
+      errors.surname = "Поле заполнено неверно.";
+    }
+
+    if (!e.email || !reEmail.test(e.email)) {
+      errors.email = "Поле заполнено неверно.";
+    }
+
+    if (!e.telephone || !reTelephone.test(e.telephone)) {
+      errors.telephone = "Поле заполнено неверно.";
+    }
+
+    return errors;
+  };
   return (
-    <form className={classes.PaymentForm}>
-      {name.fieldProcessed && name.isName && (
-        <Typography className={classes.PaymentTextError}>
-          {name.errorMessage}
-        </Typography>
+    <Form
+      onSubmit={onSubmit}
+      validate={validate}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit} className={classes.PaymentForm}>
+          <Field name="name">
+            {({ input, meta }) => (
+              <div>
+                <TextField
+                  {...input}
+                  placeholder="Имя"
+                  className={classes.PaymentInput}
+                />
+                {meta.touched && meta.error && (
+                  <Typography className={classes.PaymentTextError}>
+                    {meta.error}
+                  </Typography>
+                )}
+              </div>
+            )}
+          </Field>
+          <Field name="surname">
+            {({ input, meta }) => (
+              <div>
+                <TextField
+                  {...input}
+                  placeholder="Фамилия"
+                  className={classes.PaymentInput}
+                />
+                {meta.touched && meta.error && (
+                  <Typography className={classes.PaymentTextError}>
+                    {meta.error}
+                  </Typography>
+                )}
+              </div>
+            )}
+          </Field>
+          <Field name="email">
+            {({ input, meta }) => (
+              <div>
+                <TextField
+                  {...input}
+                  placeholder="Почта"
+                  className={classes.PaymentInput}
+                />
+                {meta.touched && meta.error && (
+                  <Typography className={classes.PaymentTextError}>
+                    {meta.error}
+                  </Typography>
+                )}
+              </div>
+            )}
+          </Field>
+          <Field name="telephone">
+            {({ input, meta }) => (
+              <div>
+                <TextField
+                  {...input}
+                  placeholder="Телефон 8/+7/7 (888) 888 88 88"
+                  className={classes.PaymentInput}
+                />
+                {meta.touched && meta.error && (
+                  <Typography className={classes.PaymentTextError}>
+                    {meta.error}
+                  </Typography>
+                )}
+              </div>
+            )}
+          </Field>
+          <Button type="submit" className={classes.PaymentButton}>
+            Заказать
+          </Button>
+        </form>
       )}
-      {name.fieldProcessed && name.isEmpty && (
-        <Typography className={classes.PaymentTextError}>
-          {name.errorEmptyMessage}
-        </Typography>
-      )}
-      <TextField
-        value={name.value}
-        name="name"
-        placeholder="Имя"
-        className={classes.PaymentInput}
-        onChange={e => name.onChange(e)}
-        onBlur={e => name.onBlur(e)}
-      />
-      {surname.fieldProcessed && surname.isSurname && (
-        <Typography className={classes.PaymentTextError}>
-          {surname.errorMessage}
-        </Typography>
-      )}
-      {surname.fieldProcessed && surname.isEmpty && (
-        <Typography className={classes.PaymentTextError}>
-          {surname.errorEmptyMessage}
-        </Typography>
-      )}
-      <TextField
-        value={surname.value}
-        name="surname"
-        placeholder="Фамилия"
-        className={classes.PaymentInput}
-        onChange={e => surname.onChange(e)}
-        onBlur={e => surname.onBlur(e)}
-      />
-      {email.fieldProcessed && email.isEmail && (
-        <Typography className={classes.PaymentTextError}>
-          {email.errorMessage}
-        </Typography>
-      )}
-      <TextField
-        value={email.value}
-        name="email"
-        placeholder="Почта"
-        className={classes.PaymentInput}
-        onChange={e => email.onChange(e)}
-        onBlur={e => email.onBlur(e)}
-      />
-      {telephone.fieldProcessed && telephone.isTelephone && (
-        <Typography className={classes.PaymentTextError}>
-          {telephone.errorMessage}
-        </Typography>
-      )}
-      <TextField
-        value={telephone.value}
-        name="telephone"
-        placeholder="Телефон"
-        className={classes.PaymentInput}
-        onChange={e => telephone.onChange(e)}
-        onBlur={e => telephone.onBlur(e)}
-      />
-      <Button
-        type="submit"
-        variant="contained"
-        disabled={!name.isFormValid}
-        className={classes.PaymentButton}
-      >
-        Заказать
-      </Button>
-    </form>
+    />
   );
 };
 
