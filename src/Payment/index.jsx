@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: "20px"
   },
   PaymentInput: {
-    marginTop: "20px"
+    marginTop: "20px",
+    width: "600px"
   },
   PaymentButton: {
     marginTop: "20px"
@@ -37,15 +38,17 @@ const Payment = () => {
     const errors = {};
 
     const reNameAndSurname = /^[а-яё]*$/i;
-    const reEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
-    const reTelephone = /^((\+7|7|8)+([0-9]){10})$/;
+    const reEmail = /[^@]+@[^@]+/i;
+    const reTelephone = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
 
     if (!e.name || !reNameAndSurname.test(e.name)) {
-      errors.name = "Поле заполнено неверно.";
+      errors.name =
+        "Поле заполнено неверно. Необходимо заполнять русскими буквами.";
     }
 
     if (!e.surname || !reNameAndSurname.test(e.surname)) {
-      errors.surname = "Поле заполнено неверно.";
+      errors.surname =
+        "Поле заполнено неверно. Необходимо заполнять русскими буквами.";
     }
 
     if (!e.email || !reEmail.test(e.email)) {
@@ -117,7 +120,7 @@ const Payment = () => {
               <div>
                 <TextField
                   {...input}
-                  placeholder="Телефон 8/+7/7 (888) 888 88 88"
+                  placeholder="Телефон"
                   className={classes.PaymentInput}
                 />
                 {meta.touched && meta.error && (
