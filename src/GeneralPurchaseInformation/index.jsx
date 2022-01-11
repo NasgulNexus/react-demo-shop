@@ -8,9 +8,11 @@ const GeneralPurchaseInformation = ({
 }) => {
   return (
     <>
-      <Typography>Различных товаров: {differentGoods}</Typography>
-      <Typography>Всего товаров: {totalGoods}</Typography>
-      <Typography> Итоговая стоимость: {totalCost.toFixed(2)} $</Typography>
+      <Typography variant="h6">Различных товаров: {differentGoods}</Typography>
+      <Typography variant="h6">Всего товаров: {totalGoods}</Typography>
+      <Typography variant="h6">
+        Итоговая стоимость: {totalCost.toFixed(2)} $
+      </Typography>
     </>
   );
 };

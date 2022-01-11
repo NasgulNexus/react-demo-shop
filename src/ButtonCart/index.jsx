@@ -10,16 +10,14 @@ const ButtonCart = ({ productId, count }) => {
   return (
     <Grid container>
       <Button
-        size="small"
         onClick={event => {
           dispatch(deleteFromCart(productId));
           event.stopPropagation();
         }}
       >
-        Удалить из корзины
+        Удалить товар
       </Button>
       <Button
-        size="small"
         onClick={event => {
           dispatch(addToCart(productId));
           event.stopPropagation();
@@ -27,9 +25,13 @@ const ButtonCart = ({ productId, count }) => {
       >
         +
       </Button>
-      <Typography>{count}</Typography>
+      <Typography
+        variant="h6"
+        sx={{ marginTop: 0.4, marginLeft: 1, marginRight: 1 }}
+      >
+        {count}
+      </Typography>
       <Button
-        size="small"
         onClick={event => {
           dispatch(decrementCart(productId));
           event.stopPropagation();

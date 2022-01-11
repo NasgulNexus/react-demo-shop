@@ -1,9 +1,9 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import ButtonCart from "../ButtonCart";
 import ImageProduct from "../ImageProduct";
-import TextProductFull from "../TextProduct/TextProductFull";
 import { Grid } from "@mui/material";
+import TextProductCost from "../TextProduct/TextProductCost";
+import Line from "../Line";
 
 const CartProductContent = ({ product, count }) => {
   return (
@@ -13,15 +13,17 @@ const CartProductContent = ({ product, count }) => {
           <ImageProduct image={product.image} title={product.title} />
         </Grid>
         <Grid item>
-          <TextProductFull product={product} />
-        </Grid>
-        <Grid item>
-          <ButtonCart productId={product.id} count={count} />
-        </Grid>
-        <Grid item>
-          <Typography>Сумма: {(count * product.price).toFixed(2)} $</Typography>
+          <div>
+            <TextProductCost
+              title={product.title}
+              price={product.price}
+              count={count}
+            />
+            <ButtonCart productId={product.id} count={count} />
+          </div>
         </Grid>
       </Grid>
+      <Line />
     </>
   );
 };

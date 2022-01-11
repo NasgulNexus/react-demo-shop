@@ -11,7 +11,6 @@ const TablesButton = ({ id }) => {
     <>
       {tables.indexOf(id) > -1 ? (
         <Button
-          size="small"
           onClick={event => {
             dispatch(deleteFromTables(id));
             event.stopPropagation();
@@ -21,7 +20,6 @@ const TablesButton = ({ id }) => {
         </Button>
       ) : (
         <Button
-          size="small"
           onClick={event => {
             dispatch(addToTables(id));
             event.stopPropagation();

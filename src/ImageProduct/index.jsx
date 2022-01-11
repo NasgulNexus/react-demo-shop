@@ -3,18 +3,20 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
   ImageProduct: {
-    maxWidth: "300px",
-    maxHeight: "300px",
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginBottom: "10px"
+    maxWidth: "200px",
+    maxHeight: "200px",
+    margin: "auto",
+    display: "block"
   }
 }));
 
 const ImageProduct = ({ title, image }) => {
   const classes = useStyles();
-  return <img src={image} alt={title} className={classes.ImageProduct} />;
+  return (
+    <div>
+      <img src={image} alt={title} className={classes.ImageProduct} />{" "}
+    </div>
+  );
 };
 
 export default ImageProduct;

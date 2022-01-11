@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 
 const useSortTableData = items => {
   const [sortConfig, setSortConfig] = useState(null);
+  const [selectButton, setSelectButton] = useState(null);
 
   const byFieldDown = field => {
     return (a, b) => (a[field] > b[field] ? 1 : -1);
@@ -13,11 +14,43 @@ const useSortTableData = items => {
 
   const requestSortAscending = field => {
     let direction = "Ascending";
+    switch (field) {
+      case "title":
+        setSelectButton("titleAscending");
+        break;
+      case "price":
+        setSelectButton("priceAscending");
+        break;
+      case "rating.rate":
+        setSelectButton("ratingAscending");
+        break;
+      case "category":
+        setSelectButton("categotyAscending");
+        break;
+      default:
+        console.log("default");
+    }
     setSortConfig({ field, direction });
   };
 
   const requestSortDescending = field => {
     let direction = "Descending";
+    switch (field) {
+      case "title":
+        setSelectButton("titleDescending");
+        break;
+      case "price":
+        setSelectButton("priceDescending");
+        break;
+      case "rating.rate":
+        setSelectButton("ratingDescending");
+        break;
+      case "category":
+        setSelectButton("categotyDescending");
+        break;
+      default:
+        console.log("default");
+    }
     setSortConfig({ field, direction });
   };
 
@@ -48,7 +81,8 @@ const useSortTableData = items => {
   return {
     items: sortedItems,
     requestSortAscending,
-    requestSortDescending
+    requestSortDescending,
+    selectButton
   };
 };
 

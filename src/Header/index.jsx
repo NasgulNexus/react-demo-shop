@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   },
   HeaderGrid: {
     justifyContent: "center"
+  },
+  HeaderTitle: {
+    marginTop: "5px"
   }
 }));
 
@@ -28,8 +31,20 @@ const Header = ({ title, menu, breadcrumbs }) => {
       <AppBar position="fixed" className={classes.HeaderAppBar}>
         <Container maxWidth="xl">
           <Grid container spacing={5} className={classes.HeaderGrid}>
+            {breadcrumbs === true ? (
+              <Grid item>
+                <IconButton component={Link} variant="text" to="/">
+                  <ArrowBackIosIcon color="primary" />
+                </IconButton>
+              </Grid>
+            ) : null}
             <Grid item>
-              <Typography variant="h6" component="h2" color="primary">
+              <Typography
+                variant="h6"
+                component="h2"
+                color="primary"
+                className={classes.HeaderTitle}
+              >
                 {title}
               </Typography>
             </Grid>
@@ -40,13 +55,6 @@ const Header = ({ title, menu, breadcrumbs }) => {
                   </Grid>
                 ))
               : null}
-            {breadcrumbs === true ? (
-              <Grid item>
-                <IconButton component={Link} variant="text" to="/">
-                  <ArrowBackIosIcon color="primary" />
-                </IconButton>
-              </Grid>
-            ) : null}
           </Grid>
         </Container>
       </AppBar>

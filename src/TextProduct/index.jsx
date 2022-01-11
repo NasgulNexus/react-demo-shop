@@ -14,17 +14,18 @@ const TextProduct = ({ title, description, price }) => {
   const classes = useStyles();
   return (
     <div>
-      <Typography gutterBottom variant="h5" component="div">
+      <Typography gutterBottom variant="h6" component="div" sx={{ mt: 2 }}>
         {title}
       </Typography>
       <Typography
         variant="body2"
         color="text.secondary"
+        sx={{ mt: 2 }}
         className={classes.description}
       >
         {description}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="h6" sx={{ mt: 2 }}>
         Цена: {price} $
       </Typography>
     </div>

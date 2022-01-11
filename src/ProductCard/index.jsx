@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { addToCart } from "../actions/cart";
 import ButtonCart from "../ButtonCart";
-import TextProduct from "./TextProduct";
+import TextProduct from "../TextProduct";
 import Card from "@mui/material/Card";
 import ImageProduct from "../ImageProduct";
 import FavoriteButton from "./FavoriteButton";
@@ -18,7 +18,7 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
   const addCartShow = cart.find(el => el.id === product.id);
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 700, minHeight: 570, padding: 3 }}>
         <FavoriteButton id={product.id} />
         <ImageProduct image={product.image} title={product.title} />
         <CardContent>
@@ -33,6 +33,9 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
           )}
         </CardContent>
         <CardActions>
+          <TablesButton id={product.id} />
+        </CardActions>
+        <CardActions>
           {cart.map(data =>
             data.id === product.id ? (
               <div key={product.id}>
@@ -42,7 +45,6 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
           )}
           {addCartShow === undefined ? (
             <Button
-              size="small"
               onClick={event => {
                 dispatch(addToCart(product.id));
                 event.stopPropagation();
@@ -51,7 +53,6 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
               Добавить в корзину
             </Button>
           ) : null}
-          <TablesButton id={product.id} />
         </CardActions>
       </Card>
     </>

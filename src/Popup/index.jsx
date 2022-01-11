@@ -1,10 +1,15 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import ProdcutCard from "../ProductCard";
 import ImageProduct from "../ImageProduct";
+import ButtonCart from "../ButtonCart";
 import TextProductFull from "../TextProduct/TextProductFull";
+import { addToCart } from "../actions/cart";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 
 const useStyles = makeStyles(theme => ({
   PopupBox: {
@@ -15,7 +20,13 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "white",
     border: "2px solid #000",
     zIndex: 1,
-    padding: "20px"
+    padding: "40px"
+  },
+  closePopup: {
+    position: "absolute",
+    right: "10px",
+    top: "10px",
+    cursor: "pointer"
   }
 }));
 
@@ -23,8 +34,10 @@ const Popup = ({ product }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-
+  const cart = useSelector(state => state.cart);
   const handleClose = () => setOpen(false);
+  const addCartShow = cart.find(el => el.id === product.id);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -33,8 +46,31 @@ const Popup = ({ product }) => {
       </div>
       <Modal open={open} onClose={handleClose}>
         <Box className={classes.PopupBox}>
+          <CloseIcon
+            sx={{ fontSize: 40 }}
+            className={classes.closePopup}
+            color="primary"
+            onClick={handleClose}
+          />
           <ImageProduct image={product.image} title={product.title} />
           <TextProductFull product={product} />
+          {cart.map(data =>
+            data.id === product.id ? (
+              <div key={product.id}>
+                <ButtonCart productId={product.id} count={data.count} />
+              </div>
+            ) : null
+          )}
+          {addCartShow === undefined ? (
+            <Button
+              onClick={event => {
+                dispatch(addToCart(product.id));
+                event.stopPropagation();
+              }}
+            >
+              Добавить в корзину
+            </Button>
+          ) : null}
         </Box>
       </Modal>
     </>

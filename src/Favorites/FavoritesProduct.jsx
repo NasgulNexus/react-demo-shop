@@ -21,9 +21,14 @@ const FavoritesProduct = () => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3} className={classes.ProductListGridContainer}>
+      <Grid
+        container
+        spacing={4}
+        columns={16}
+        className={classes.ProductListGridContainer}
+      >
         {favorites.map(favoritesId => (
-          <Grid item key={favoritesId}>
+          <Grid item key={favoritesId} xs={8}>
             <ProdcutCard
               product={products[favoritesId]}
               ProdcutTextFull={true}
