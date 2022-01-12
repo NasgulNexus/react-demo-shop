@@ -45,16 +45,16 @@ const PaymentContent = () => {
           className={classes.PaymentContentButton}
           size="large"
         >
-          {show ? "Посмотреть список товара" : "Закрыть список товаров"}
+          {!show ? "Посмотреть список товара" : "Закрыть список товаров"}
         </Button>
       </div>
       <Line />
       <PaymentForm />
       <Line />
       <Grid container spacing={6}>
-        {!show
+        {show
           ? cart.map(dataCart => (
-              <Grid item>
+              <Grid item key={dataCart.id}>
                 <TextProductCost
                   title={products[dataCart.id].title}
                   price={products[dataCart.id].price}

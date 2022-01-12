@@ -24,11 +24,11 @@ const FavoritesProduct = () => {
       <Grid
         container
         spacing={4}
-        columns={16}
+        columns={12}
         className={classes.ProductListGridContainer}
       >
         {favorites.map(favoritesId => (
-          <Grid item key={favoritesId} xs={8}>
+          <Grid item key={favoritesId} xs={4}>
             <ProdcutCard
               product={products[favoritesId]}
               ProdcutTextFull={true}
