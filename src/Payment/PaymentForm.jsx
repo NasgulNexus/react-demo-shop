@@ -35,6 +35,7 @@ const PaymentForm = () => {
     const conclusion =
       e.name + " " + e.surname + " " + e.email + " " + e.telephone;
     alert(conclusion);
+    window.location = "/";
   };
 
   const validate = e => {

@@ -11,7 +11,7 @@ const GeneralPurchaseInformation = ({
       <Typography variant="h6">Различных товаров: {differentGoods}</Typography>
       <Typography variant="h6">Всего товаров: {totalGoods}</Typography>
       <Typography variant="h6">
-        Итоговая стоимость: {totalCost.toFixed(2)} $
+        Итоговая стоимость: {totalCost.toFixed(2)}&nbsp;$
       </Typography>
     </>
   );

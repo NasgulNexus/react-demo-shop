@@ -45,7 +45,7 @@ const PaymentContent = () => {
           className={classes.PaymentContentButton}
           size="large"
         >
-          {!show ? "Посмотреть список товара" : "Закрыть список товаров"}
+          {!show ? "Посмотреть список товаров" : "Закрыть список товаров"}
         </Button>
       </div>
       <Line />

@@ -38,6 +38,13 @@ const Header = ({ title, menu, breadcrumbs }) => {
                 </IconButton>
               </Grid>
             ) : null}
+            {menu !== undefined
+              ? menu.map((element, index) => (
+                  <Grid item key={index}>
+                    {element}
+                  </Grid>
+                ))
+              : null}
             <Grid item>
               <Typography
                 variant="h6"
@@ -48,13 +55,6 @@ const Header = ({ title, menu, breadcrumbs }) => {
                 {title}
               </Typography>
             </Grid>
-            {menu !== undefined
-              ? menu.map((element, index) => (
-                  <Grid item key={index}>
-                    {element}
-                  </Grid>
-                ))
-              : null}
           </Grid>
         </Container>
       </AppBar>

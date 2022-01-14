@@ -53,7 +53,7 @@ const TablesProduct = () => {
     items,
     requestSortAscending,
     requestSortDescending,
-    selectButton
+    sortConfig
   } = useSortTableData(data);
 
   return (
@@ -69,7 +69,8 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "titleAscending"
+                      sortConfig.field === "title" &&
+                      sortConfig.direction === "Ascending"
                   })}
                 />
                 <ArrowDownwardIcon
@@ -77,7 +78,8 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "titleDescending"
+                      sortConfig.field === "title" &&
+                      sortConfig.direction === "Descending"
                   })}
                 />
               </TableCell>
@@ -88,7 +90,8 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "priceAscending"
+                      sortConfig.field === "price" &&
+                      sortConfig.direction === "Ascending"
                   })}
                 />
                 <ArrowDownwardIcon
@@ -96,7 +99,8 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "priceDescending"
+                      sortConfig.field === "price" &&
+                      sortConfig.direction === "Descending"
                   })}
                 />
               </TableCell>
@@ -107,7 +111,8 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "ratingAscending"
+                      sortConfig.field === "rating.rate" &&
+                      sortConfig.direction === "Ascending"
                   })}
                 />
                 <ArrowDownwardIcon
@@ -115,18 +120,20 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "ratingDescending"
+                      sortConfig.field === "rating.rate" &&
+                      sortConfig.direction === "Descending"
                   })}
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6">Categoty</Typography>
+                <Typography variant="h6">Category</Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("category")}
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "categotyAscending"
+                      sortConfig.field === "category" &&
+                      sortConfig.direction === "Ascending"
                   })}
                 />
                 <ArrowDownwardIcon
@@ -134,7 +141,8 @@ const TablesProduct = () => {
                   fontSize="small"
                   className={clsx(classes.sortButton, {
                     [classes.sortButtonSelect]:
-                      selectButton === "categotyDescending"
+                      sortConfig.field === "category" &&
+                      sortConfig.direction === "Descending"
                   })}
                 />
               </TableCell>

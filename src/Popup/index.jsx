@@ -10,6 +10,7 @@ import TextProductFull from "../TextProduct/TextProductFull";
 import { addToCart } from "../actions/cart";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
+import TablesButton from "../ProductCard/TablesButton";
 
 const useStyles = makeStyles(theme => ({
   PopupBox: {
@@ -20,7 +21,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "white",
     border: "2px solid #000",
     zIndex: 1,
-    padding: "40px"
+    padding: "40px",
+    maxHeight: "100vh",
+    overflowY: "auto",
+    boxSizing: "borderBox"
   },
   closePopup: {
     position: "absolute",
@@ -54,23 +58,26 @@ const Popup = ({ product }) => {
           />
           <ImageProduct image={product.image} title={product.title} />
           <TextProductFull product={product} />
-          {cart.map(data =>
-            data.id === product.id ? (
-              <div key={product.id}>
-                <ButtonCart productId={product.id} count={data.count} />
-              </div>
-            ) : null
-          )}
-          {addCartShow === undefined ? (
-            <Button
-              onClick={event => {
-                dispatch(addToCart(product.id));
-                event.stopPropagation();
-              }}
-            >
-              Добавить в корзину
-            </Button>
-          ) : null}
+          <TablesButton id={product.id} />
+          <div>
+            {cart.map(data =>
+              data.id === product.id ? (
+                <div key={product.id}>
+                  <ButtonCart productId={product.id} count={data.count} />
+                </div>
+              ) : null
+            )}
+            {addCartShow === undefined ? (
+              <Button
+                onClick={event => {
+                  dispatch(addToCart(product.id));
+                  event.stopPropagation();
+                }}
+              >
+                Добавить в корзину
+              </Button>
+            ) : null}
+          </div>
         </Box>
       </Modal>
     </>
