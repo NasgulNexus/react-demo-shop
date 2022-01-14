@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     padding: "40px",
     maxHeight: "100vh",
     overflowY: "auto",
-    boxSizing: "borderBox"
+    boxSizing: "border-box"
   },
   closePopup: {
     position: "absolute",
