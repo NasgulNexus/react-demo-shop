@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { makeStyles } from "@mui/styles";
 import PaymentForm from "./PaymentForm";
 import GeneralPurchaseInformation from "../GeneralPurchaseInformation";
-import TextProductCost from "../TextProduct/TextProductCost";
-import { Typography, Button, Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import Line from "../Line";
+import TextProduct from "../TextProduct";
 
 const useStyles = makeStyles(theme => ({
   PaymentContentDiv: {
@@ -55,14 +55,11 @@ const PaymentContent = () => {
         {show
           ? cart.map(dataCart => (
               <Grid item key={dataCart.id}>
-                <TextProductCost
+                <TextProduct
                   title={products[dataCart.id].title}
                   price={products[dataCart.id].price}
                   count={dataCart.count}
                 />
-                <Typography variant="h6" sx={{ mt: 2 }}>
-                  Количество товара: {dataCart.count}
-                </Typography>
                 <Line />
               </Grid>
             ))

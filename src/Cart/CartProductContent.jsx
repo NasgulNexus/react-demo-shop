@@ -2,7 +2,7 @@ import React from "react";
 import ButtonCart from "../ButtonCart";
 import ImageProduct from "../ImageProduct";
 import { Grid } from "@mui/material";
-import TextProductCost from "../TextProduct/TextProductCost";
+import TextProduct from "../TextProduct";
 import Line from "../Line";
 
 const CartProductContent = ({ product, count }) => {
@@ -14,7 +14,7 @@ const CartProductContent = ({ product, count }) => {
         </Grid>
         <Grid item>
           <div>
-            <TextProductCost
+            <TextProduct
               title={product.title}
               price={product.price}
               count={count}

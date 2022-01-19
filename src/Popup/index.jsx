@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal";
 import ProdcutCard from "../ProductCard";
 import ImageProduct from "../ImageProduct";
 import ButtonCart from "../ButtonCart";
-import TextProductFull from "../TextProduct/TextProductFull";
+import TextProduct from "../TextProduct";
 import { addToCart } from "../actions/cart";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
@@ -57,7 +57,13 @@ const Popup = ({ product }) => {
             onClick={handleClose}
           />
           <ImageProduct image={product.image} title={product.title} />
-          <TextProductFull product={product} />
+          <TextProduct
+            title={product.title}
+            descriptionFull={product.description}
+            price={product.price}
+            category={product.category}
+            rate={product.rating.rate}
+          />
           <TablesButton id={product.id} />
           <div>
             {cart.map(data =>

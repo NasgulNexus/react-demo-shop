@@ -10,7 +10,6 @@ import Card from "@mui/material/Card";
 import ImageProduct from "../ImageProduct";
 import FavoriteButton from "./FavoriteButton";
 import TablesButton from "./TablesButton";
-import TextProductFull from "../TextProduct/TextProductFull";
 
 const ProdcutCard = ({ product, ProductTextFull }) => {
   const cart = useSelector(state => state.cart);
@@ -23,7 +22,13 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
         <ImageProduct image={product.image} title={product.title} />
         <CardContent>
           {ProductTextFull === true ? (
-            <TextProductFull product={product} />
+            <TextProduct
+              title={product.title}
+              descriptionFull={product.description}
+              price={product.price}
+              category={product.category}
+              rate={product.rating.rate}
+            />
           ) : (
             <TextProduct
               title={product.title}
