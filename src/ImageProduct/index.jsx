@@ -3,10 +3,11 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
   ImageProduct: {
-    maxWidth: "200px",
-    maxHeight: "200px",
+    width: "200px",
+    height: "200px",
     margin: "auto",
-    display: "block"
+    display: "block",
+    objectFit: "contain"
   }
 }));
 
@@ -14,7 +15,7 @@ const ImageProduct = ({ title, image }) => {
   const classes = useStyles();
   return (
     <div>
-      <img src={image} alt={title} className={classes.ImageProduct} />{" "}
+      <img src={image} alt={title} className={classes.ImageProduct} />
     </div>
   );
 };

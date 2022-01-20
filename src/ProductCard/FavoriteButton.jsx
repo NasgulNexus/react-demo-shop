@@ -8,9 +8,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 const useStyles = makeStyles(theme => ({
   ProductListHeart: {
     color: "red",
-    position: "relative",
-    float: "right",
-    cursor: "pointer"
+    position: "absolute",
+    cursor: "pointer",
+    top: "10px",
+    right: "10px"
   }
 }));
 
