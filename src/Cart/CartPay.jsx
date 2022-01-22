@@ -27,7 +27,12 @@ const CartPay = ({ cart, products }) => {
         totalGoods={totalGoods}
         differentGoods={differentGoods}
       />
-      <Button disabled={totalGoods < 1} component={Link} to="/payment">
+      <Button
+        size="large"
+        disabled={totalGoods < 1}
+        component={Link}
+        to="/payment"
+      >
         Оплатить
       </Button>
     </div>

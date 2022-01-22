@@ -12,6 +12,8 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import TablesRow from "./TablesRow";
 import useSortTableData from "./useSortTableData";
+import { Typography } from "@mui/material";
+import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +35,9 @@ const useStyles = makeStyles(theme => ({
   },
   sortButton: {
     cursor: "pointer"
+  },
+  sortButtonSelect: {
+    color: "blue"
   }
 }));
 
@@ -47,7 +52,8 @@ const TablesProduct = () => {
   const {
     items,
     requestSortAscending,
-    requestSortDescending
+    requestSortDescending,
+    sortConfig
   } = useSortTableData(data);
 
   return (
@@ -57,48 +63,88 @@ const TablesProduct = () => {
           <TableHead>
             <TableRow>
               <TableCell>
+                <Typography variant="h6">Title</Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("title")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "title" &&
+                      sortConfig.direction === "Ascending"
+                  })}
                 />
                 <ArrowDownwardIcon
                   onClick={() => requestSortDescending("title")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "title" &&
+                      sortConfig.direction === "Descending"
+                  })}
                 />
-                Title
               </TableCell>
               <TableCell align="right">
+                <Typography variant="h6">Price ($)</Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("price")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "price" &&
+                      sortConfig.direction === "Ascending"
+                  })}
                 />
                 <ArrowDownwardIcon
                   onClick={() => requestSortDescending("price")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "price" &&
+                      sortConfig.direction === "Descending"
+                  })}
                 />
-                Price ($)
               </TableCell>
               <TableCell align="right">
+                <Typography variant="h6">Rating (x/5)</Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("rating.rate")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "rating.rate" &&
+                      sortConfig.direction === "Ascending"
+                  })}
                 />
                 <ArrowDownwardIcon
                   onClick={() => requestSortDescending("rating.rate")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "rating.rate" &&
+                      sortConfig.direction === "Descending"
+                  })}
                 />
-                Rating (x/5)
               </TableCell>
               <TableCell align="right">
+                <Typography variant="h6">Category</Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("category")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "category" &&
+                      sortConfig.direction === "Ascending"
+                  })}
                 />
                 <ArrowDownwardIcon
                   onClick={() => requestSortDescending("category")}
-                  className={classes.sortButton}
+                  fontSize="small"
+                  className={clsx(classes.sortButton, {
+                    [classes.sortButtonSelect]:
+                      sortConfig.field === "category" &&
+                      sortConfig.direction === "Descending"
+                  })}
                 />
-                Categoty
               </TableCell>
             </TableRow>
           </TableHead>

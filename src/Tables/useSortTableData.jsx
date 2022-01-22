@@ -1,7 +1,10 @@
 import { useState, useMemo } from "react";
 
 const useSortTableData = items => {
-  const [sortConfig, setSortConfig] = useState(null);
+  const [sortConfig, setSortConfig] = useState({
+    field: null,
+    direction: null
+  });
 
   const byFieldDown = field => {
     return (a, b) => (a[field] > b[field] ? 1 : -1);
@@ -48,7 +51,8 @@ const useSortTableData = items => {
   return {
     items: sortedItems,
     requestSortAscending,
-    requestSortDescending
+    requestSortDescending,
+    sortConfig
   };
 };
 

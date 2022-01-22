@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   },
   HeaderGrid: {
     justifyContent: "center"
+  },
+  HeaderTitle: {
+    marginTop: "5px"
   }
 }));
 
@@ -28,18 +31,6 @@ const Header = ({ title, menu, breadcrumbs }) => {
       <AppBar position="fixed" className={classes.HeaderAppBar}>
         <Container maxWidth="xl">
           <Grid container spacing={5} className={classes.HeaderGrid}>
-            <Grid item>
-              <Typography variant="h6" component="h2" color="primary">
-                {title}
-              </Typography>
-            </Grid>
-            {menu !== undefined
-              ? menu.map((element, index) => (
-                  <Grid item key={index}>
-                    {element}
-                  </Grid>
-                ))
-              : null}
             {breadcrumbs === true ? (
               <Grid item>
                 <IconButton component={Link} variant="text" to="/">
@@ -47,6 +38,23 @@ const Header = ({ title, menu, breadcrumbs }) => {
                 </IconButton>
               </Grid>
             ) : null}
+            {menu !== undefined
+              ? menu.map((element, index) => (
+                  <Grid item key={index}>
+                    {element}
+                  </Grid>
+                ))
+              : null}
+            <Grid item>
+              <Typography
+                variant="h6"
+                component="h2"
+                color="primary"
+                className={classes.HeaderTitle}
+              >
+                {title}
+              </Typography>
+            </Grid>
           </Grid>
         </Container>
       </AppBar>

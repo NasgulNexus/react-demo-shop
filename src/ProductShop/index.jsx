@@ -11,10 +11,10 @@ const Favorites = () => {
     <div>
       <Header
         menu={[
-          <Button component={Link} variant="text" to="/favorites">
+          <Button component={Link} size="large" variant="text" to="/favorites">
             Избранное
           </Button>,
-          <Button component={Link} variant="text" to="/tables">
+          <Button component={Link} size="large" variant="text" to="/tables">
             Таблица сравнения
           </Button>,
           <IconButton component={Link} variant="text" to="/cart">

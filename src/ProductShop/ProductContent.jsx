@@ -27,9 +27,14 @@ const ProductContent = () => {
   }, [products, searchResult, dispatch]);
   return (
     <div className={classes.root}>
-      <Grid container spacing={3} className={classes.ProductListGridContainer}>
+      <Grid
+        container
+        spacing={4}
+        columns={12}
+        className={classes.ProductListGridContainer}
+      >
         {searchResult.map(idProduct => (
-          <Grid key={idProduct} item>
+          <Grid key={idProduct} item xs={4}>
             <Popup product={products[idProduct]} />
           </Grid>
         ))}
