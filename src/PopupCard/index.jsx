@@ -5,12 +5,12 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import ProdcutCard from "../ProductCard";
 import ImageProduct from "../ImageProduct";
-import ButtonCart from "../ButtonCart";
 import TextProduct from "../TextProduct";
 import { addToCart } from "../actions/cart";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
-import TablesButton from "../ProductCard/TablesButton";
+import TablesButton from "../TablesButton";
+import CartButton from "../CartButton";
 
 const useStyles = makeStyles(theme => ({
   PopupBox: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Popup = ({ product }) => {
+const PopupCard = ({ product }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -69,7 +69,7 @@ const Popup = ({ product }) => {
             {cart.map(data =>
               data.id === product.id ? (
                 <div key={product.id}>
-                  <ButtonCart productId={product.id} count={data.count} />
+                  <CartButton productId={product.id} count={data.count} />
                 </div>
               ) : null
             )}
@@ -90,4 +90,4 @@ const Popup = ({ product }) => {
   );
 };
 
-export default Popup;
+export default PopupCard;

@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TablesProduct = () => {
+const TablesContent = () => {
   const classes = useStyles();
   const products = useSelector(state => state.products);
   const tables = useSelector(state => state.tables);
@@ -173,4 +173,4 @@ const TablesProduct = () => {
   );
 };
 
-export default TablesProduct;
+export default TablesContent;

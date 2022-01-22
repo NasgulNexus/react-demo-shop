@@ -4,12 +4,12 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { addToCart } from "../actions/cart";
-import ButtonCart from "../ButtonCart";
+import CartButton from "../CartButton";
 import TextProduct from "../TextProduct";
 import Card from "@mui/material/Card";
 import ImageProduct from "../ImageProduct";
-import FavoriteButton from "./FavoriteButton";
-import TablesButton from "./TablesButton";
+import FavoriteButton from "../FavoriteButton";
+import TablesButton from "../TablesButton";
 
 const ProdcutCard = ({ product, ProductTextFull }) => {
   const cart = useSelector(state => state.cart);
@@ -46,7 +46,7 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
           {cart.map(data =>
             data.id === product.id ? (
               <div key={product.id}>
-                <ButtonCart productId={product.id} count={data.count} />
+                <CartButton productId={product.id} count={data.count} />
               </div>
             ) : null
           )}

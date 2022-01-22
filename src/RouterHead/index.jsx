@@ -2,14 +2,14 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Cart from "../Cart";
 import Favorites from "../Favorites";
-import ProductShop from "../ProductShop";
+import Catalog from "../Сatalog";
 import Tables from "../Tables";
 import Payment from "../Payment";
 
 const RouterHead = () => (
   <div>
     <Routes>
-      <Route path="/" element={<ProductShop />}></Route>
+      <Route path="/" element={<Catalog />}></Route>
       <Route path="/favorites" element={<Favorites />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
       <Route path="/tables" element={<Tables />}></Route>

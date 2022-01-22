@@ -3,19 +3,19 @@ import Grid from "@mui/material/Grid";
 import { makeStyles } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGetProducts } from "../actions/products";
-import Popup from "../Popup";
+import PopupCard from "../PopupCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     marginTop: "60px"
   },
-  ProductListGridContainer: {
+  CatalogContent: {
     justifyContent: "center"
   }
 }));
 
-const ProductContent = () => {
+const CatalogContent = () => {
   const classes = useStyles();
   const products = useSelector(state => state.products);
   const searchResult = useSelector(state => state.searchResult);
@@ -25,21 +25,22 @@ const ProductContent = () => {
       dispatch(fetchGetProducts());
     }
   }, [products, searchResult, dispatch]);
+
   return (
     <div className={classes.root}>
       <Grid
         container
         spacing={4}
         columns={12}
-        className={classes.ProductListGridContainer}
+        className={classes.CatalogContent}
       >
         {searchResult.map(idProduct => (
           <Grid key={idProduct} item xs={4}>
-            <Popup product={products[idProduct]} />
+            <PopupCard product={products[idProduct]} />
           </Grid>
         ))}
       </Grid>
     </div>
   );
 };
-export default ProductContent;
+export default CatalogContent;

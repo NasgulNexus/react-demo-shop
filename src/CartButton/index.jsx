@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { deleteFromCart, addToCart, decrementCart } from "../actions/cart";
 import { Grid } from "@mui/material";
 
-const ButtonCart = ({ productId, count }) => {
+const CartButton = ({ productId, count }) => {
   const dispatch = useDispatch();
   return (
     <Grid container>
@@ -44,4 +44,4 @@ const ButtonCart = ({ productId, count }) => {
   );
 };
 
-export default ButtonCart;
+export default CartButton;

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FavoritesProduct = () => {
+const FavoritesContent = () => {
   const classes = useStyles();
   const products = useSelector(state => state.products);
   const favorites = useSelector(state => state.favorites);
@@ -39,4 +39,4 @@ const FavoritesProduct = () => {
     </div>
   );
 };
-export default FavoritesProduct;
+export default FavoritesContent;

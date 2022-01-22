@@ -4,9 +4,9 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import ProductContent from "./ProductContent";
+import CatalogContent from "./CatalogContent";
 
-const Favorites = () => {
+const Catalog = () => {
   return (
     <div>
       <Header
@@ -22,9 +22,9 @@ const Favorites = () => {
           </IconButton>
         ]}
       />
-      <ProductContent />
+      <CatalogContent />
     </div>
   );
 };
 
-export default Favorites;
+export default Catalog;
