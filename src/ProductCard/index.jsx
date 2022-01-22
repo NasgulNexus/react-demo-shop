@@ -18,7 +18,9 @@ const ProdcutCard = ({ product, ProductTextFull }) => {
   const addCartShow = cart.find(el => el.id === product.id);
   return (
     <>
-      <Card sx={{ maxWidth: 700, minHeight: 570, padding: 3 }}>
+      <Card
+        sx={{ maxWidth: 700, minHeight: 600, padding: 3, position: "relative" }}
+      >
         <FavoriteButton id={product.id} />
         <ImageProduct image={product.image} title={product.title} />
         <CardContent>
