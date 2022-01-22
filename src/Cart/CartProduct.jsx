@@ -4,8 +4,17 @@ import ImageProduct from "../ImageProduct";
 import { Grid } from "@mui/material";
 import TextProduct from "../TextProduct";
 import Line from "../Line";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles(theme => ({
+  CartProductDivide: {
+    marginBottom: "15px"
+  }
+}));
 
 const CartProduct = ({ product, count }) => {
+  const classes = useStyles();
+
   return (
     <>
       <Grid container spacing={5}>
@@ -19,6 +28,7 @@ const CartProduct = ({ product, count }) => {
               price={product.price}
               count={count}
             />
+            <div className={classes.CartProductDivide} />
             <CartButton productId={product.id} count={count} />
           </div>
         </Grid>
