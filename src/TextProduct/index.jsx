@@ -10,7 +10,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TextProduct = ({ title, description, price }) => {
+const TextProduct = ({
+  title,
+  description,
+  descriptionFull,
+  price,
+  category,
+  rate,
+  count
+}) => {
   const classes = useStyles();
   return (
     <div>
@@ -25,9 +33,21 @@ const TextProduct = ({ title, description, price }) => {
       >
         {description}
       </Typography>
-      <Typography variant="h6" sx={{ mt: 2 }}>
+      {descriptionFull && (
+        <Typography sx={{ mt: 2 }}>Описание: {descriptionFull}</Typography>
+      )}
+      {category && (
+        <Typography sx={{ mt: 2 }}>Категория: {category}</Typography>
+      )}
+      {rate && <Typography sx={{ mt: 2 }}>Рейтинг: {rate}/5</Typography>}
+      <Typography variant="h6" sx={{ mt: 2 }} component="div">
         Цена: {price} $
       </Typography>
+      {count && (
+        <Typography variant="h6" sx={{ mt: 2 }} component="div">
+          Количество товара: {count}
+        </Typography>
+      )}
     </div>
   );
 };
