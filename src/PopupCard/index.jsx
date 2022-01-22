@@ -31,6 +31,9 @@ const useStyles = makeStyles(theme => ({
     right: "10px",
     top: "10px",
     cursor: "pointer"
+  },
+  PopupButton: {
+    marginTop: "20px"
   }
 }));
 
@@ -64,6 +67,7 @@ const PopupCard = ({ product }) => {
             category={product.category}
             rate={product.rating.rate}
           />
+          <div className={classes.PopupButton} />
           <TablesButton id={product.id} />
           <div>
             {cart.map(data =>

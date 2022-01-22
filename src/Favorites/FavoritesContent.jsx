@@ -31,7 +31,7 @@ const FavoritesContent = () => {
           <Grid item key={favoritesId} xs={4}>
             <ProdcutCard
               product={products[favoritesId]}
-              ProdcutTextFull={true}
+              ProductTextFull={true}
             />
           </Grid>
         ))}

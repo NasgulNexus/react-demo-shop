@@ -11,15 +11,25 @@ import ImageProduct from "../ImageProduct";
 import FavoriteButton from "../FavoriteButton";
 import TablesButton from "../TablesButton";
 
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles(theme => ({
+  CardStyle: {
+    maxWidth: "700px",
+    minHeight: "600px",
+    padding: "10px",
+    position: "relative"
+  }
+}));
+
 const ProdcutCard = ({ product, ProductTextFull }) => {
+  const classes = useStyles();
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const addCartShow = cart.find(el => el.id === product.id);
   return (
     <>
-      <Card
-        sx={{ maxWidth: 700, minHeight: 600, padding: 3, position: "relative" }}
-      >
+      <Card className={classes.CardStyle}>
         <FavoriteButton id={product.id} />
         <ImageProduct image={product.image} title={product.title} />
         <CardContent>

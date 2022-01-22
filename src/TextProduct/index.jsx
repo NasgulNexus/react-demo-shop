@@ -29,17 +29,26 @@ const TextProduct = ({
         variant="body2"
         color="text.secondary"
         sx={{ mt: 2 }}
+        component="div"
         className={classes.description}
       >
         {description}
       </Typography>
       {descriptionFull && (
-        <Typography sx={{ mt: 2 }}>Описание: {descriptionFull}</Typography>
+        <Typography component="div" sx={{ mt: 2 }}>
+          Описание: {descriptionFull}
+        </Typography>
       )}
       {category && (
-        <Typography sx={{ mt: 2 }}>Категория: {category}</Typography>
+        <Typography component="div" sx={{ mt: 2 }}>
+          Категория: {category}
+        </Typography>
       )}
-      {rate && <Typography sx={{ mt: 2 }}>Рейтинг: {rate}/5</Typography>}
+      {rate && (
+        <Typography component="div" sx={{ mt: 2 }}>
+          Рейтинг: {rate}/5
+        </Typography>
+      )}
       <Typography variant="h6" sx={{ mt: 2 }} component="div">
         Цена: {price} $
       </Typography>
