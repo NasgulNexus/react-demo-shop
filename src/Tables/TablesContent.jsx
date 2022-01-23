@@ -63,7 +63,7 @@ const TablesContent = () => {
           <TableHead>
             <TableRow>
               <TableCell>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="p">
                   Title
                 </Typography>
                 <ArrowUpwardIcon
@@ -86,7 +86,7 @@ const TablesContent = () => {
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="p">
                   Price ($)
                 </Typography>
                 <ArrowUpwardIcon
@@ -109,7 +109,7 @@ const TablesContent = () => {
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="p">
                   Rating (x/5)
                 </Typography>
                 <ArrowUpwardIcon
@@ -132,7 +132,7 @@ const TablesContent = () => {
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="p">
                   Category
                 </Typography>
                 <ArrowUpwardIcon

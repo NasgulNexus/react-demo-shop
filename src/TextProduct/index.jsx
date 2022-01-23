@@ -22,38 +22,29 @@ const TextProduct = ({
   const classes = useStyles();
   return (
     <div>
-      <Typography gutterBottom variant="h6" component="div" sx={{ mt: 2 }}>
+      <Typography gutterBottom variant="h6" component="p" sx={{ mt: 2 }}>
         {title}
       </Typography>
       <Typography
         variant="body2"
         color="text.secondary"
         sx={{ mt: 2 }}
-        component="div"
         className={classes.description}
       >
         {description}
       </Typography>
       {descriptionFull && (
-        <Typography component="div" sx={{ mt: 2 }}>
-          Описание: {descriptionFull}
-        </Typography>
+        <Typography sx={{ mt: 2 }}>Описание: {descriptionFull}</Typography>
       )}
       {category && (
-        <Typography component="div" sx={{ mt: 2 }}>
-          Категория: {category}
-        </Typography>
+        <Typography sx={{ mt: 2 }}>Категория: {category}</Typography>
       )}
-      {rate && (
-        <Typography component="div" sx={{ mt: 2 }}>
-          Рейтинг: {rate}/5
-        </Typography>
-      )}
-      <Typography variant="h6" sx={{ mt: 2 }} component="div">
+      {rate && <Typography sx={{ mt: 2 }}>Рейтинг: {rate}/5</Typography>}
+      <Typography variant="h6" sx={{ mt: 2 }} component="p">
         Цена: {price} $
       </Typography>
       {count && (
-        <Typography variant="h6" sx={{ mt: 2 }} component="div">
+        <Typography variant="h6" sx={{ mt: 2 }} component="p">
           Количество товара: {count}
         </Typography>
       )}

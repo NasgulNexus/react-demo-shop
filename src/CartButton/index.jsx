@@ -27,7 +27,7 @@ const CartButton = ({ productId, count }) => {
       </Button>
       <Typography
         variant="h6"
-        component="div"
+        component="p"
         sx={{ marginTop: 0.4, marginLeft: 1, marginRight: 1 }}
       >
         {count}
