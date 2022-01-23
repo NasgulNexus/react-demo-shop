@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FavoritesProduct = () => {
+const FavoritesContent = () => {
   const classes = useStyles();
   const products = useSelector(state => state.products);
   const favorites = useSelector(state => state.favorites);
@@ -31,7 +31,7 @@ const FavoritesProduct = () => {
           <Grid item key={favoritesId} xs={4}>
             <ProdcutCard
               product={products[favoritesId]}
-              ProdcutTextFull={true}
+              ProductTextFull={true}
             />
           </Grid>
         ))}
@@ -39,4 +39,4 @@ const FavoritesProduct = () => {
     </div>
   );
 };
-export default FavoritesProduct;
+export default FavoritesContent;

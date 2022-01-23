@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToFavorites, deleteFromFavorites } from "../actions/favorites";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { IconButton } from "@mui/material";
 
 const useStyles = makeStyles(theme => ({
   ProductListHeart: {
@@ -23,23 +24,27 @@ const FavoriteButton = ({ id }) => {
   return (
     <>
       {favorites.indexOf(id) > -1 ? (
-        <FavoriteIcon
-          className={classes.ProductListHeart}
+        <IconButton
           key={id}
+          className={classes.ProductListHeart}
           onClick={event => {
             dispatch(deleteFromFavorites(id));
             event.stopPropagation();
           }}
-        />
+        >
+          <FavoriteIcon />
+        </IconButton>
       ) : (
-        <FavoriteBorderIcon
-          className={classes.ProductListHeart}
+        <IconButton
           key={id}
+          className={classes.ProductListHeart}
           onClick={event => {
             dispatch(addToFavorites(id));
             event.stopPropagation();
           }}
-        />
+        >
+          <FavoriteBorderIcon />
+        </IconButton>
       )}
     </>
   );

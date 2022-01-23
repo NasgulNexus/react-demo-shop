@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../Header";
-import TablesProduct from "./TablesProduct";
+import TablesContent from "./TablesContent";
 
 const Tables = () => {
   return (
     <div>
       <Header title={"Таблица сравнения"} breadcrumbs={true} />
-      <TablesProduct />
+      <TablesContent />
     </div>
   );
 };

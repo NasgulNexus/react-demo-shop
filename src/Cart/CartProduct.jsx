@@ -1,42 +1,39 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import CartProductContent from "./CartProductContent";
-import { makeStyles } from "@mui/styles";
-import CartPay from "./CartPay";
+import CartButton from "../CartButton";
+import ImageProduct from "../ImageProduct";
 import { Grid } from "@mui/material";
+import TextProduct from "../TextProduct";
+import Line from "../Line";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    marginTop: "60px"
-  },
-  itemCartProduct: {
-    marginTop: "30px",
-    marginBottom: "30px"
+  CartProductDivide: {
+    marginBottom: "15px"
   }
 }));
 
-const CartProduct = () => {
+const CartProduct = ({ product, count }) => {
   const classes = useStyles();
-  const products = useSelector(state => state.products);
-  const cart = useSelector(state => state.cart);
 
   return (
     <>
-      <Grid container spacing={2} columns={16} className={classes.root}>
-        <Grid item xs={12}>
-          {cart.map(cartData => (
-            <div key={cartData.id} className={classes.itemCartProduct}>
-              <CartProductContent
-                product={products[cartData.id]}
-                count={cartData.count}
-              />
-            </div>
-          ))}
+      <Grid container spacing={5}>
+        <Grid item>
+          <ImageProduct image={product.image} title={product.title} />
         </Grid>
-        <Grid item xs={4} className={classes.itemCartProduct}>
-          <CartPay cart={cart} products={products} />
+        <Grid item>
+          <div>
+            <TextProduct
+              title={product.title}
+              price={product.price}
+              count={count}
+            />
+            <div className={classes.CartProductDivide} />
+            <CartButton productId={product.id} count={count} />
+          </div>
         </Grid>
       </Grid>
+      <Line />
     </>
   );
 };

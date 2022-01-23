@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TablesProduct = () => {
+const TablesContent = () => {
   const classes = useStyles();
   const products = useSelector(state => state.products);
   const tables = useSelector(state => state.tables);
@@ -63,7 +63,9 @@ const TablesProduct = () => {
           <TableHead>
             <TableRow>
               <TableCell>
-                <Typography variant="h6">Title</Typography>
+                <Typography variant="h6" component="p">
+                  Title
+                </Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("title")}
                   fontSize="small"
@@ -84,7 +86,9 @@ const TablesProduct = () => {
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6">Price ($)</Typography>
+                <Typography variant="h6" component="p">
+                  Price ($)
+                </Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("price")}
                   fontSize="small"
@@ -105,7 +109,9 @@ const TablesProduct = () => {
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6">Rating (x/5)</Typography>
+                <Typography variant="h6" component="p">
+                  Rating (x/5)
+                </Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("rating.rate")}
                   fontSize="small"
@@ -126,7 +132,9 @@ const TablesProduct = () => {
                 />
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6">Category</Typography>
+                <Typography variant="h6" component="p">
+                  Category
+                </Typography>
                 <ArrowUpwardIcon
                   onClick={() => requestSortAscending("category")}
                   fontSize="small"
@@ -165,4 +173,4 @@ const TablesProduct = () => {
   );
 };
 
-export default TablesProduct;
+export default TablesContent;

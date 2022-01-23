@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../Header";
-import FavoritesProduct from "./FavoritesProduct";
+import FavoritesContent from "./FavoritesContent";
 
 const Favorites = () => {
   return (
     <div>
       <Header title={"Избранное"} breadcrumbs={true} />
-      <FavoritesProduct />
+      <FavoritesContent />
     </div>
   );
 };
