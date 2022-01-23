@@ -48,7 +48,7 @@ const Header = ({ title, menu, breadcrumbs }) => {
             <Grid item>
               <Typography
                 variant="h6"
-                component="div"
+                component="p"
                 color="primary"
                 className={classes.HeaderTitle}
               >
