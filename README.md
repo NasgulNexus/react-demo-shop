@@ -1,9 +1,5 @@
 # Магазин
 
-### GIT
-
-https://github.com/NasgulNexus/react-demo-shop
-
 ### GH-PAGES
 
 https://nasgulnexus.github.io/react-demo-shop/
