@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import RouterHead from "./RouterHead";
 
 const App = () => (
-  <Router>
+  <Router basename="/react-demo-shop">
     <div className="App">
       <Container fixed>
         <RouterHead />
